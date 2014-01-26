@@ -8,7 +8,7 @@ from base.model_utils import TimeStampedModel
 
 class Enquiry(TimeStampedModel):
     name = models.CharField(max_length=100)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField()
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=100, blank=True)
     email_sent = models.DateTimeField(blank=True, null=True)

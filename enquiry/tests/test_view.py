@@ -25,6 +25,7 @@ class TestView(TestCase):
             reverse('enquiry.create'),
             dict(
                 name='Richard',
+                description='Do you sell hay and straw?',
                 email='richard@pkimber.net',
                 captcha_0='testing',
                 captcha_1='PASSED',

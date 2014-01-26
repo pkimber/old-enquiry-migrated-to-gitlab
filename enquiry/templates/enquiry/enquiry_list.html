@@ -16,7 +16,6 @@
           <tr>
             <th>ID</th>
             <th>Date</th>
-            <th>Name</th>
             <th>From</th>
             <th>Description</th>
           </tr>
@@ -28,12 +27,11 @@
                 {{ e.pk }}
               </td>
               <td>
+                {{ e.created|date:"D jS M Y, H:ia" }}
+              </td>
+              <td>
                 {{ e.name }}
-              </td>
-              <td>
-                {{ e.created|date:"D jS M Y" }}
-              </td>
-              <td>
+                <br />
                 {% if e.email %}
                   {{ e.email|urlize }}
                 {% endif %}
@@ -45,7 +43,9 @@
                 {% endif %}
               </td>
               <td>
-                {{ e.description|urlize|linebreaksbr }}
+                {% if e.description %}
+                  {{ e.description|urlize|linebreaksbr }}
+                {% endif %}
               </td>
             </tr>
           {% endfor %}
