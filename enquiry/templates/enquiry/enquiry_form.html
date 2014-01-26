@@ -1,0 +1,17 @@
+{% extends "enquiry/base.html" %}
+
+{% block sub_title %}
+  Create an enquiry
+{% endblock sub_title %}
+
+{% block sub_heading %}
+  Create an enquiry
+{% endblock sub_heading %}
+
+{% block content %}
+  <div class="pure-g-r">
+    <div class="pure-u-1">
+      {% include '_form.html' with legend='Enquiry' %}
+    </div>
+  </div>
+{% endblock content %}

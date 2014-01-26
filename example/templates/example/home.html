@@ -1,0 +1,33 @@
+{% extends "enquiry/base.html" %}
+{% load staticfiles %}
+
+{% block sub_title %}
+  Example app
+{% endblock sub_title %}
+
+{% block sub_heading %}
+  Example app
+{% endblock sub_heading %}
+
+{% block content %}
+  <div class="pure-g-r">
+    <div class="pure-u-1">
+      <div class="pure-menu pure-menu-open pure-menu-horizontal">
+        <ul>
+          <li>
+            <a href="{% url 'enquiry.list' %}">
+              <i class="fa fa-comments-o"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'enquiry.create' %}">
+              <i class="fa fa-comments-o"></i>
+              New enquiry
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

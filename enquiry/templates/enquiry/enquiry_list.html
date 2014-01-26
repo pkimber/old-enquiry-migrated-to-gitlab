@@ -1,0 +1,56 @@
+{% extends "enquiry/base.html" %}
+
+{% block title %}
+  Enquiries
+{% endblock title %}
+
+{% block sub_heading %}
+  Enquiries
+{% endblock sub_heading %}
+
+{% block content %}
+  <div class="pure-g-r">
+    <div class="pure-u-1">
+      <table class="pure-table pure-table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>From</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for e in enquiry_list %}
+            <tr valign="top">
+              <td>
+                {{ e.pk }}
+              </td>
+              <td>
+                {{ e.name }}
+              </td>
+              <td>
+                {{ e.created|date:"D jS M Y" }}
+              </td>
+              <td>
+                {% if e.email %}
+                  {{ e.email|urlize }}
+                {% endif %}
+                {% if e.phone and e.email %}
+                  <br />
+                {% endif %}
+                {% if e.phone %}
+                  {{ e.phone }}
+                {% endif %}
+              </td>
+              <td>
+                {{ e.description|urlize|linebreaksbr }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock content %}
