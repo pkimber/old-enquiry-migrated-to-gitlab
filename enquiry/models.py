@@ -11,6 +11,7 @@ class Enquiry(TimeStampedModel):
     description = models.TextField()
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=100, blank=True)
+    retry_count = models.IntegerField(default=0)
     email_sent = models.DateTimeField(blank=True, null=True)
 
     class Meta:
@@ -34,3 +35,9 @@ class Enquiry(TimeStampedModel):
             )
 
 reversion.register(Enquiry)
+
+
+class Notify(TimeStampedModel):
+    """List of people to notify when an enquiry is received."""
+
+    email = models.EmailField(blank=True)

@@ -18,6 +18,7 @@
             <th>Date</th>
             <th>From</th>
             <th>Description</th>
+            <th>Notify</th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +47,9 @@
                 {% if e.description %}
                   {{ e.description|urlize|linebreaksbr }}
                 {% endif %}
+              </td>
+              <td>
+                {{ e.email_sent|date:"D jS M Y, H:ia" }}
               </td>
             </tr>
           {% endfor %}
