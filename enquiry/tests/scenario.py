@@ -1,3 +1,7 @@
+from datetime import datetime
+
+from dateutil.relativedelta import relativedelta
+
 from enquiry.tests.model_maker import make_enquiry
 
 
@@ -18,4 +22,5 @@ def default_scenario_enquiry():
         ),
         'test@pkimber.net',
         '01234 567 890',
+        email_sent=datetime.now() + relativedelta(days=1),
     )
