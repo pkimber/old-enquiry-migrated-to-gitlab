@@ -17,6 +17,7 @@ from .models import Enquiry
 
 
 class EnquiryCreateView(BaseMixin, CreateView):
+    """Save an enquiry in the database."""
 
     form_class = EnquiryForm
     model = Enquiry

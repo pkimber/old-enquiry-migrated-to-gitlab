@@ -11,7 +11,7 @@ class Enquiry(TimeStampedModel):
     description = models.TextField()
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=100, blank=True)
-    retry_count = models.IntegerField(default=0)
+    retry_count = models.IntegerField(blank=True, null=True)
     email_sent = models.DateTimeField(blank=True, null=True)
 
     class Meta:

@@ -23,9 +23,6 @@ urlpatterns = patterns(
     url(regex=r'^admin/',
         view=include(admin.site.urls)
         ),
-    url(regex=r'^captcha/',
-        view=include('captcha.urls')
-        ),
     url(regex=r'^enquiry/',
         view=include('enquiry.urls')
         ),

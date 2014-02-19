@@ -1,5 +1,21 @@
 """ Django settings """
+import os
+
 from django.core.urlresolvers import reverse_lazy
+
+
+def get_env_variable(key):
+    """
+    Get the environment variable or return exception
+    Copied from Django two scoops book
+    """
+    try:
+        return os.environ.get(key)
+    except KeyError:
+        error_msg = "Set the {} env variable".format(key)
+        print 'ImproperlyConfigured: {}'.format(error_msg)
+        raise ImproperlyConfigured(error_msg)
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -175,6 +191,11 @@ FTP_STATIC_URL = None
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
 LOGIN_REDIRECT_URL = reverse_lazy('project.home.user')
+
+# https://github.com/praekelt/django-recaptcha/
+RECAPTCHA_PRIVATE_KEY = get_env_variable('RECAPTCHA_PRIVATE_KEY')
+RECAPTCHA_PUBLIC_KEY = get_env_variable('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_USE_SSL = True
 
 # https://github.com/johnsensible/django-sendfile
 SENDFILE_BACKEND = 'sendfile.backends.development'

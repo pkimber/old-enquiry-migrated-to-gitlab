@@ -9,14 +9,22 @@ Install
 Virtual Environment
 -------------------
 
-Note: replace ``patrick`` with your name (checking in the ``example`` folder
-to make sure a file has been created for you)::
+.. note:: Replace ``patrick`` with your name (check in the ``settings`` folder
+          to make sure a file has been created for you).
+
+.. note:: Replace ``your private key`` and ``your public key`` with the actual
+          reCAPTCHA keys.
 
   mkvirtualenv dev_enquiry
   pip install -r requirements/local.txt
 
   echo "export DJANGO_SETTINGS_MODULE=example.dev_patrick" >> $VIRTUAL_ENV/bin/postactivate
+  echo "export RECAPTCHA_PRIVATE_KEY=\"your private key\"" >> $VIRTUAL_ENV/bin/postactivate
+  echo "export RECAPTCHA_PUBLIC_KEY=\"your public key\"" >> $VIRTUAL_ENV/bin/postactivate
+
   echo "unset DJANGO_SETTINGS_MODULE" >> $VIRTUAL_ENV/bin/postdeactivate
+  echo "unset RECAPTCHA_PRIVATE_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
+  echo "unset RECAPTCHA_PUBLIC_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
 
   add2virtualenv ../base
   add2virtualenv ../login
