@@ -28,6 +28,18 @@ class Command(BaseCommand):
             result.append(n.email)
         return result
 
+    def _process(self, primary_keys, emails):
+        for pk in primary_keys:
+            enquiry = Enquiry.objects.get(pk=pk)
+            try:
+                self._send_email(enquiry, emails)
+                enquiry.email_sent = datetime.now()
+            except (SMTPException, MailgunAPIError) as e:
+                logger.error(e.message)
+                retry_count = enquiry.retry_count or 0
+                enquiry.retry_count = retry_count + 1
+            enquiry.save()
+
     def _send_email(self, enquiry, emails):
         """Send enquiry notification to a list of email addresses."""
         mail.send_mail(
@@ -40,14 +52,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         emails = self._get_notify()
-        pks = [e.pk for e in Enquiry.objects.filter(email_sent__isnull=True)]
-        for pk in pks:
-            enquiry = Enquiry.objects.get(pk=pk)
-            try:
-                self._send_email(enquiry, emails)
-                enquiry.email_sent = datetime.now()
-            except (SMTPException, MailgunAPIError) as e:
-                logger.error(e.message)
-                retry_count = enquiry.retry_count or 0
-                enquiry.retry_count = retry_count + 1
-            enquiry.save()
+        if emails:
+            pks = [e.pk for e in Enquiry.objects.filter(email_sent__isnull=True)]
+            self._process(pks, emails)
+        else:
+            logger.error('no email addresses set-up to notify')

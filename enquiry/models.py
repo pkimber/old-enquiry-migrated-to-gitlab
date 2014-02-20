@@ -41,4 +41,4 @@ reversion.register(Enquiry)
 class Notify(TimeStampedModel):
     """List of people to notify when an enquiry is received."""
 
-    email = models.EmailField(blank=True)
+    email = models.EmailField()
