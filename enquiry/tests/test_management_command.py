@@ -6,7 +6,10 @@ from enquiry.management.commands import (
     enquiry_send_emails,
     init_app_enquiry,
 )
-from enquiry.tests.scenario import default_scenario_enquiry
+from enquiry.tests.scenario import (
+    default_scenario_enquiry,
+    get_enquiry_buy_some_hay,
+)
 from login.management.commands import demo_data_login
 from login.tests.scenario import default_scenario_login
 
@@ -29,6 +32,8 @@ class TestCommand(TestCase):
         """Test the management command."""
         default_scenario_login()
         default_scenario_enquiry()
+        self.assertIsNone(get_enquiry_buy_some_hay().email_sent)
         command = enquiry_send_emails.Command()
         command.handle()
         self.assertEqual(len(mail.outbox), 1)
+        self.assertIsNotNone(get_enquiry_buy_some_hay().email_sent)

@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 from smtplib import SMTPException
 
@@ -39,9 +40,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         emails = self._get_notify()
-        enquiries = Enquiry.objects.filter(email_sent__isnull=True)
-        for e in enquiries:
+        pks = [e.pk for e in Enquiry.objects.filter(email_sent__isnull=True)]
+        for pk in pks:
+            enquiry = Enquiry.objects.get(pk=pk)
             try:
-                self._send_email(e, emails)
+                self._send_email(enquiry, emails)
+                enquiry.email_sent = datetime.now()
             except (SMTPException, MailgunAPIError) as e:
                 logger.error(e.message)
+                retry_count = enquiry.retry_count or 0
+                enquiry.retry_count = retry_count + 1
+            enquiry.save()

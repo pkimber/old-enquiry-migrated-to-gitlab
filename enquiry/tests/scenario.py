@@ -2,10 +2,15 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
+from enquiry.models import Enquiry
 from enquiry.tests.model_maker import (
     make_enquiry,
     make_notify,
 )
+
+
+def get_enquiry_buy_some_hay():
+    return Enquiry.objects.get(description='Can I buy some hay?')
 
 
 def default_scenario_enquiry():
