@@ -1,3 +1,6 @@
+# -*- encoding: utf-8 -*-
+
+from __future__ import unicode_literals
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -20,12 +23,12 @@ class Enquiry(TimeStampedModel):
         verbose_name = 'Enquiry'
         verbose_name_plural = 'Enquiries'
 
-    def __unicode__(self):
-        return unicode('{}: {}, {}'.format(
+    def __str__(self):
+        return '{}: {}, {}'.format(
             self.name,
             self.email,
             self.phone,
-        ))
+        )
 
     def clean(self):
         if self.phone or self.email:

@@ -1,3 +1,6 @@
+# -*- encoding: utf-8 -*-
+
+from __future__ import unicode_literals
 """ Django settings """
 import os
 
@@ -13,7 +16,7 @@ def get_env_variable(key):
         return os.environ.get(key)
     except KeyError:
         error_msg = "Set the {} env variable".format(key)
-        print 'ImproperlyConfigured: {}'.format(error_msg)
+        print('ImproperlyConfigured: {}'.format(error_msg))
         raise ImproperlyConfigured(error_msg)
 
 

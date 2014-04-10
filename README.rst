@@ -19,10 +19,10 @@ Virtual Environment
   pip install -r requirements/local.txt
 
   echo "export DJANGO_SETTINGS_MODULE=example.dev_patrick" >> $VIRTUAL_ENV/bin/postactivate
+  echo "unset DJANGO_SETTINGS_MODULE" >> $VIRTUAL_ENV/bin/postdeactivate
+
   echo "export RECAPTCHA_PRIVATE_KEY=\"your private key\"" >> $VIRTUAL_ENV/bin/postactivate
   echo "export RECAPTCHA_PUBLIC_KEY=\"your public key\"" >> $VIRTUAL_ENV/bin/postactivate
-
-  echo "unset DJANGO_SETTINGS_MODULE" >> $VIRTUAL_ENV/bin/postdeactivate
   echo "unset RECAPTCHA_PRIVATE_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
   echo "unset RECAPTCHA_PUBLIC_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
 
