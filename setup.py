@@ -1,6 +1,3 @@
-# -*- encoding: utf-8 -*-
-
-from __future__ import unicode_literals
 import os
 from distutils.core import setup
 
@@ -31,7 +28,7 @@ setup(
             'templates/enquiry/*.*',
         ],
     },
-    version='0.0.05',
+    version='0.0.06',
     description='enquiry',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
