@@ -11,7 +11,7 @@ from .models import Enquiry
 class EnquiryForm(RequiredFieldForm):
 
     """user is not logged in... so we need a captcha."""
-    captcha = ReCaptchaField(attrs={'theme' : 'clean'})
+    captcha = ReCaptchaField(attrs={'theme': 'white'})
 
     def __init__(self, *args, **kwargs):
         super(EnquiryForm, self).__init__(*args, **kwargs)
