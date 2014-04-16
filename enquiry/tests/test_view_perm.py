@@ -1,10 +1,7 @@
 # -*- encoding: utf-8 -*-
-
 from __future__ import unicode_literals
-from datetime import datetime
 
 from django.core.urlresolvers import reverse
-from django.test import TestCase
 
 from base.tests.test_utils import PermTestCase
 from enquiry.tests.scenario import default_scenario_enquiry
