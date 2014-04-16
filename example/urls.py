@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
-
 from __future__ import unicode_literals
+
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.conf.urls.static import static
@@ -9,7 +9,10 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import RedirectView
 
-from .views import HomeView
+from .views import (
+    EnquiryCreateView,
+    HomeView
+)
 
 admin.autodiscover()
 
@@ -22,6 +25,10 @@ urlpatterns = patterns(
         ),
     url(regex=r'^',
         view=include('login.urls')
+        ),
+    url(regex=r'^add/$',
+        view=EnquiryCreateView.as_view(),
+        name='example.enquiry.create'
         ),
     url(regex=r'^admin/',
         view=include(admin.site.urls)

@@ -14,6 +14,6 @@ class TestViewPerm(PermTestCase):
         default_scenario_login()
         default_scenario_enquiry()
 
-    def test_list(self):
-        url = reverse('enquiry.list')
-        self.assert_staff_only(url)
+    def test_create(self):
+        url = reverse('example.enquiry.create')
+        self.assert_any(url)

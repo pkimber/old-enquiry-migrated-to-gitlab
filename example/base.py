@@ -1,9 +1,11 @@
 # -*- encoding: utf-8 -*-
-
 from __future__ import unicode_literals
+
 """ Django settings """
+
 import os
 
+from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse_lazy
 
 

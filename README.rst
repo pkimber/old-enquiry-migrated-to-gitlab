@@ -22,26 +22,13 @@ Virtual Environment
   echo "unset DJANGO_SETTINGS_MODULE" >> $VIRTUAL_ENV/bin/postdeactivate
 
   echo "export RECAPTCHA_PRIVATE_KEY=\"your private key\"" >> $VIRTUAL_ENV/bin/postactivate
-  echo "export RECAPTCHA_PUBLIC_KEY=\"your public key\"" >> $VIRTUAL_ENV/bin/postactivate
   echo "unset RECAPTCHA_PRIVATE_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
+
+  echo "export RECAPTCHA_PUBLIC_KEY=\"your public key\"" >> $VIRTUAL_ENV/bin/postactivate
   echo "unset RECAPTCHA_PUBLIC_KEY" >> $VIRTUAL_ENV/bin/postdeactivate
 
-  add2virtualenv ../base
-  add2virtualenv ../login
   add2virtualenv .
   deactivate
-
-To check the order of the imports::
-
-  workon dev_enquiry
-  cdsitepackages
-  cat _virtualenv_path_extensions.pth
-
-Check the imports are in the correct order e.g::
-
-  /home/patrick/repo/dev/app/enquiry
-  /home/patrick/repo/dev/app/login
-  /home/patrick/repo/dev/app/base
 
 Testing
 =======
