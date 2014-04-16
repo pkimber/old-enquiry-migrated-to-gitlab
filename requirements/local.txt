@@ -2,9 +2,11 @@
 beautifulsoup4
 fabric
 gitpython
-ipdb
 hgapi
+ipdb
 psycopg2
 pytest-django
+pytest-flakes
+pytest-pep8
 pyyaml
 walkdir

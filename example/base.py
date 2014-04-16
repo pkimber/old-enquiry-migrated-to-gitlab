@@ -198,7 +198,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('project.home.user')
 # Put in the example app for testing purposes only
 MAILGUN_SERVER_NAME = get_env_variable("MAILGUN_SERVER_NAME")
 
-# https://github.com/praekelt/django-recaptcha/
+# https://github.com/insttrack/django-recaptcha
 RECAPTCHA_PRIVATE_KEY = get_env_variable('RECAPTCHA_PRIVATE_KEY')
 RECAPTCHA_PUBLIC_KEY = get_env_variable('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_USE_SSL = True
