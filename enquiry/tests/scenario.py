@@ -1,10 +1,6 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from datetime import datetime
-
-from dateutil.relativedelta import relativedelta
-
 from enquiry.models import Enquiry
 from enquiry.tests.model_maker import (
     make_enquiry,

@@ -1,20 +1,13 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.core import mail
 from django.test import TestCase
 
 from login.management.commands import demo_data_login
-from login.tests.scenario import default_scenario_login
-from mail.management.commands import mail_send
 
 from enquiry.management.commands import (
     demo_data_enquiry,
     init_app_enquiry,
-)
-from enquiry.tests.scenario import (
-    default_scenario_enquiry,
-    get_enquiry_buy_some_hay,
 )
 
 
