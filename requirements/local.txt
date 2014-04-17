@@ -1,6 +1,7 @@
 -r base.txt
 -e ../base
 -e ../login
+-e ../mail
 beautifulsoup4
 fabric
 gitpython

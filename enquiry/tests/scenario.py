@@ -33,6 +33,6 @@ def default_scenario_enquiry():
         ),
         'test@pkimber.net',
         '01234 567 890',
-        email_sent=datetime.now() + relativedelta(days=1),
     )
-    make_notify('test@pkimber.net')
+    make_notify('test1@pkimber.net')
+    make_notify('test2@pkimber.net')

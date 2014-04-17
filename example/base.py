@@ -152,6 +152,7 @@ LOCAL_APPS = (
     'example',
     'enquiry',
     'login',
+    'mail',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
