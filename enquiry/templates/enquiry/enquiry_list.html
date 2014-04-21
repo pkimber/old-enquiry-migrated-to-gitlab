@@ -11,50 +11,50 @@
 {% block content %}
   <div class="pure-g-r">
     <div class="pure-u-1">
-      <table class="pure-table pure-table-bordered">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Date</th>
-            <th>From</th>
-            <th>Description</th>
-            <th>Notify</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for e in enquiry_list %}
-            <tr valign="top">
-              <td>
-                {{ e.pk }}
-              </td>
-              <td>
-                {{ e.created|date:"D jS M Y, H:ia" }}
-              </td>
-              <td>
-                {{ e.name }}
-                <br />
-                {% if e.email %}
-                  {{ e.email|urlize }}
-                {% endif %}
-                {% if e.phone and e.email %}
-                  <br />
-                {% endif %}
-                {% if e.phone %}
-                  {{ e.phone }}
-                {% endif %}
-              </td>
-              <td>
-                {% if e.description %}
-                  {{ e.description|urlize|linebreaksbr }}
-                {% endif %}
-              </td>
-              <td>
-                {{ e.email_sent|date:"D jS M Y, H:ia" }}
-              </td>
+      <div class="l-box">
+        <table class="pure-table pure-table-bordered">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>From</th>
+              <th>Description</th>
             </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {% for e in enquiry_list %}
+              <tr valign="top">
+                <td>
+                  {{ e.pk }}
+                </td>
+                <td>
+                  {{ e.created|date:"D jS M Y" }}
+                  <br />
+                  {{ e.created|date:"H:ia" }}
+                </td>
+                <td>
+                  {{ e.name }}
+                  <br />
+                  {% if e.email %}
+                    {{ e.email|urlize }}
+                  {% endif %}
+                  {% if e.phone and e.email %}
+                    <br />
+                  {% endif %}
+                  {% if e.phone %}
+                    {{ e.phone }}
+                  {% endif %}
+                </td>
+                <td>
+                  {% if e.description %}
+                    {{ e.description|urlize|linebreaksbr }}
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 {% endblock content %}

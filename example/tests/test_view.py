@@ -50,7 +50,7 @@ class TestView(TestCase):
 
     def test_create(self):
         """check enquiry."""
-        response = self._post_enquiry()
+        self._post_enquiry()
         try:
             Enquiry.objects.get(name='Richard')
         except Enquiry.DoesNotExist:
@@ -58,7 +58,7 @@ class TestView(TestCase):
 
     def test_send_emails(self):
         """Test the management command."""
-        response = self._post_enquiry()
+        self._post_enquiry()
         enquiry = self._get_enquiry()
         message = enquiry.message
         count = 0
