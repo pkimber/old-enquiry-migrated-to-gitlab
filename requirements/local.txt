@@ -1,4 +1,5 @@
 -r base.txt
+-e .
 -e ../base
 -e ../login
 -e ../mail

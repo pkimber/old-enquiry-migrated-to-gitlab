@@ -5,7 +5,6 @@ django-sendfile==0.3.4
 Django==1.6.3
 git+https://github.com/BradWhittington/django-mailgun.git#egg=django_mailgun
 git+https://github.com/pkimber/django-recaptcha.git#egg=captcha
-pillow==2.0
 python-dateutil==2.2
 pytz==2014.2
 South==0.8.4
