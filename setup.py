@@ -28,7 +28,7 @@ setup(
             'templates/enquiry/*.*',
         ],
     },
-    version='0.0.08',
+    version='0.0.09',
     description='enquiry',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
