@@ -15,7 +15,7 @@ def get_env_variable(key):
     Copied from Django two scoops book
     """
     try:
-        return os.environ.get(key)
+        return os.environ[key]
     except KeyError:
         error_msg = "Set the {} env variable".format(key)
         print('ImproperlyConfigured: {}'.format(error_msg))
