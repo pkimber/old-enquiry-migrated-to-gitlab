@@ -1,7 +1,8 @@
 bleach==1.4
 django-braces==1.4.0
 django-reversion==1.8.0
-Django==1.6.4
+Django==1.6.5
+djrill
 git+https://github.com/BradWhittington/django-mailgun.git#egg=django_mailgun
 git+https://github.com/pkimber/django-recaptcha.git#egg=captcha
 git+https://github.com/pkimber/django-sendfile#egg=sendfile

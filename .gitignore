@@ -38,3 +38,6 @@ venv-*
 .mr.developer.cfg
 .project
 .pydevproject
+
+# private info
+.private

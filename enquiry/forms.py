@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from captcha.fields import ReCaptchaField
 
 from base.form_utils import RequiredFieldForm
-from mail.service import queue_mail
+from mail.service import queue_mail_message
 
 from .models import (
     Enquiry,
@@ -32,7 +32,7 @@ class EnquiryForm(RequiredFieldForm):
         instance = super(EnquiryForm, self).save(commit)
         if commit:
             email_addresses = [n.email for n in Notify.objects.all()]
-            queue_mail(
+            queue_mail_message(
                 instance,
                 email_addresses,
                 'Enquiry from {}'.format(instance.name),

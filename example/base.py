@@ -198,6 +198,9 @@ FTP_STATIC_URL = None
 # view gets no next parameter.
 LOGIN_REDIRECT_URL = reverse_lazy('project.home.user')
 
+# See the list of constants at the top of 'mail.models'
+MAIL_TEMPLATE_TYPE = get_env_variable("MAIL_TEMPLATE_TYPE")
+
 # Put in the example app for testing purposes only
 MAILGUN_SERVER_NAME = get_env_variable("MAILGUN_SERVER_NAME")
 
