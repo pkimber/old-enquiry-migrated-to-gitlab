@@ -14,7 +14,10 @@ from login.tests.scenario import (
 )
 from mail.management.commands import mail_send
 
-from enquiry.models import Enquiry
+from enquiry.models import (
+    Enquiry,
+    Notify,
+)
 from enquiry.tests.scenario import default_scenario_enquiry
 
 
@@ -50,6 +53,20 @@ class TestView(TestCase):
 
     def test_create(self):
         """check enquiry."""
+        self._post_enquiry()
+        try:
+            Enquiry.objects.get(name='Richard')
+        except Enquiry.DoesNotExist:
+            self.fail('cannot find new enquiry')
+
+    def test_create_no_notify(self):
+        """check enquiry with no users to notify.
+
+        Will write an error message to the log file, and won't send any
+        emails.
+
+        """
+        Notify.objects.all().delete()
         self._post_enquiry()
         try:
             Enquiry.objects.get(name='Richard')

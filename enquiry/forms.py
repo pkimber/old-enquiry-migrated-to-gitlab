@@ -1,6 +1,8 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
+import logging
+
 from captcha.fields import ReCaptchaField
 
 from base.form_utils import RequiredFieldForm
@@ -10,6 +12,9 @@ from .models import (
     Enquiry,
     Notify,
 )
+
+
+logger = logging.getLogger(__name__)
 
 
 class EnquiryForm(RequiredFieldForm):
@@ -32,10 +37,16 @@ class EnquiryForm(RequiredFieldForm):
         instance = super(EnquiryForm, self).save(commit)
         if commit:
             email_addresses = [n.email for n in Notify.objects.all()]
-            queue_mail_message(
-                instance,
-                email_addresses,
-                'Enquiry from {}'.format(instance.name),
-                instance.description,
-            )
+            if email_addresses:
+                queue_mail_message(
+                    instance,
+                    email_addresses,
+                    'Enquiry from {}'.format(instance.name),
+                    instance.description,
+                )
+            else:
+                logging.error(
+                    "Enquiry app cannot send email notifications.  "
+                    "No email addresses set-up in 'enquiry.models.Notify'"
+                )
         return instance

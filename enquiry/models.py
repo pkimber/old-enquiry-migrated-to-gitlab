@@ -56,5 +56,3 @@ class Notify(TimeStampedModel):
     email = models.EmailField()
 
 reversion.register(Notify)
-
-
