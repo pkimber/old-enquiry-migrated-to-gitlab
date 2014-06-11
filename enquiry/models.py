@@ -19,7 +19,7 @@ class Enquiry(TimeStampedModel):
     phone = models.CharField(max_length=100, blank=True)
 
     class Meta:
-        ordering = ['created']
+        ordering = ['-created']
         verbose_name = 'Enquiry'
         verbose_name_plural = 'Enquiries'
 
