@@ -20,10 +20,14 @@ logger = logging.getLogger(__name__)
 class EnquiryForm(RequiredFieldForm):
 
     """user is not logged in... so we need a captcha."""
-    captcha = ReCaptchaField(attrs={'theme': 'white'})
+    captcha = ReCaptchaField(attrs={'theme': 'clean'})
 
     def __init__(self, *args, **kwargs):
+        """Don't use the captcha if the user is already logged in."""
+        user = kwargs.pop('user')
         super(EnquiryForm, self).__init__(*args, **kwargs)
+        if user.is_authenticated():
+            del self.fields['captcha']
         for name in ('name', 'description', 'email', 'phone'):
             self.fields[name].widget.attrs.update(
                 {'class': 'pure-input-1-2', 'rows': 4}

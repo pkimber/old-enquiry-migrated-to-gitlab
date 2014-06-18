@@ -23,5 +23,12 @@ class EnquiryCreateView(BaseMixin, CreateView):
     form_class = EnquiryForm
     model = Enquiry
 
+    def get_form_kwargs(self):
+        kwargs = super(EnquiryCreateView, self).get_form_kwargs()
+        kwargs.update(dict(
+            user=self.request.user,
+        ))
+        return kwargs
+
     def get_success_url(self):
         return reverse('project.home')
