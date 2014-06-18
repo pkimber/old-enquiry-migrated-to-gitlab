@@ -9,13 +9,12 @@
 {% endblock sub_heading %}
 
 {% block content %}
-  <div class="pure-g-r">
+  <div class="pure-g">
     <div class="pure-u-1">
       <div class="l-box">
         <table class="pure-table pure-table-bordered">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Date</th>
               <th>From</th>
               <th>Description</th>
@@ -24,9 +23,6 @@
           <tbody>
             {% for e in enquiry_list %}
               <tr valign="top">
-                <td>
-                  {{ e.pk }}
-                </td>
                 <td>
                   {{ e.created|date:"D jS M Y" }}
                   <br />
