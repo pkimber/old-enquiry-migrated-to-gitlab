@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 class EnquiryForm(RequiredFieldForm):
 
     """user is not logged in... so we need a captcha."""
-    captcha = ReCaptchaField(attrs={'theme': 'clean'})
+    captcha = ReCaptchaField(attrs={'theme': 'white'})
 
     def __init__(self, *args, **kwargs):
         """Don't use the captcha if the user is already logged in."""
