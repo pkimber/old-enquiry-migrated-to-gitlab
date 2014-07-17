@@ -7,10 +7,10 @@ from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 
+from login.tests.factories import TEST_PASSWORD
 from login.tests.scenario import (
     default_scenario_login,
     get_user_staff,
-    STAFF,
 )
 from mail.management.commands import mail_send
 
@@ -45,7 +45,7 @@ class TestView(TestCase):
         default_scenario_enquiry()
         staff = get_user_staff()
         self.assertTrue(
-            self.client.login(username=staff.username, password=STAFF)
+            self.client.login(username=staff.username, password=TEST_PASSWORD)
         )
 
     def tearDown(self):

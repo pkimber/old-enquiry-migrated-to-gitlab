@@ -5,6 +5,7 @@
 -e ../mail
 beautifulsoup4
 fabric
+factory-boy
 gitpython
 hgapi
 ipdb
