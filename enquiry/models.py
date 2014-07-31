@@ -55,4 +55,7 @@ class Notify(TimeStampedModel):
 
     email = models.EmailField()
 
+    def __str__(self):
+        return '{}'.format(self.email)
+
 reversion.register(Notify)
