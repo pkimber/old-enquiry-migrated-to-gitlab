@@ -51,10 +51,14 @@ Usage
       django-admin.py demo_data_enquiry && \
       django-admin.py runserver
 
-Browse to http://localhost:8000/.  To login::
+To login, browse to http://localhost:8000/::
 
   user          staff
   pass          letmein
+
+To send email, use the ``mail_send`` management command::
+
+  django-admin.py mail_send
 
 Release
 =======

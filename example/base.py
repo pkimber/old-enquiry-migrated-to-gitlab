@@ -195,6 +195,9 @@ CAPTCHA_TEST_MODE = True
 # django-compressor
 COMPRESS_ENABLED = False # defaults to the opposite of DEBUG
 
+# to send the emails, run 'django-admin.py mail_send'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 FTP_STATIC_DIR = None
 FTP_STATIC_URL = None
 
