@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 import logging
 
+from django.core.urlresolvers import reverse
+
 from captcha.fields import ReCaptchaField
 
 from base.form_utils import RequiredFieldForm
@@ -37,6 +39,20 @@ class EnquiryForm(RequiredFieldForm):
         model = Enquiry
         fields = ('name', 'description', 'email', 'phone')
 
+    def _email_message(self, enquiry):
+        result = '{} - enquiry received from {}, '.format(
+            enquiry.created.strftime('%d/%m/%Y %H:%M'),
+            enquiry.name,
+        )
+        if enquiry.email:
+            result = result + '{} '.format(enquiry.email)
+        if enquiry.phone:
+            result = result + 'on {}'.format(enquiry.phone)
+        result = result + ':\n\n{}\n\n{}'.format(
+            enquiry.description, reverse('enquiry.list')
+        )
+        return result
+
     def save(self, commit=True):
         instance = super(EnquiryForm, self).save(commit)
         if commit:
@@ -46,7 +62,7 @@ class EnquiryForm(RequiredFieldForm):
                     instance,
                     email_addresses,
                     'Enquiry from {}'.format(instance.name),
-                    instance.description,
+                    self._email_message(instance),
                 )
             else:
                 logging.error(

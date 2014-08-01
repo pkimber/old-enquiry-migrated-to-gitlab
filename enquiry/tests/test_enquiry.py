@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from enquiry.tests.model_maker import make_enquiry
+from .model_maker import make_enquiry
 
 
 class TestEnquiry(TestCase):
@@ -39,3 +39,4 @@ class TestEnquiry(TestCase):
             'web@pkimber.net',
             '07840 538 357',
         )
+

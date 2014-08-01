@@ -14,6 +14,7 @@ from login.tests.scenario import (
 )
 from mail.management.commands import mail_send
 
+from enquiry.tests.factories import EnquiryFactory
 from enquiry.models import (
     Enquiry,
     Notify,
@@ -33,6 +34,7 @@ class TestView(TestCase):
                 name='Richard',
                 description='Do you sell hay and straw?',
                 email='richard@pkimber.net',
+                phone='07840 538 357',
                 recaptcha_response_field='PASSED',
             )
         )
@@ -72,6 +74,20 @@ class TestView(TestCase):
             Enquiry.objects.get(name='Richard')
         except Enquiry.DoesNotExist:
             self.fail('cannot find new enquiry')
+
+    def test_enquiry_email(self):
+        self._post_enquiry()
+        enquiry = Enquiry.objects.get(name='Richard')
+        message = enquiry.message
+        self.assertIn((
+                'enquiry received from Richard, '
+                'richard@pkimber.net on 07840 538 357'
+            ),
+            message.description
+        )
+        self.assertIn('Do you sell hay and straw?', message.description)
+        self.assertIn('/enquiry/', message.description)
+
 
     def test_send_emails(self):
         """Test the management command."""
