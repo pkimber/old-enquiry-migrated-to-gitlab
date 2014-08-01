@@ -27,6 +27,7 @@ class EnquiryForm(RequiredFieldForm):
     def __init__(self, *args, **kwargs):
         """Don't use the captcha if the user is already logged in."""
         user = kwargs.pop('user')
+        self.req = kwargs.pop('request')
         super(EnquiryForm, self).__init__(*args, **kwargs)
         if user.is_authenticated():
             del self.fields['captcha']
@@ -49,7 +50,8 @@ class EnquiryForm(RequiredFieldForm):
         if enquiry.phone:
             result = result + 'on {}'.format(enquiry.phone)
         result = result + ':\n\n{}\n\n{}'.format(
-            enquiry.description, reverse('enquiry.list')
+            enquiry.description,
+            self.req.build_absolute_uri(reverse('enquiry.list')),
         )
         return result
 

@@ -85,7 +85,7 @@ class TestView(TestCase):
             message.description
         )
         self.assertIn('Do you sell hay and straw?', message.description)
-        self.assertIn('/enquiry/', message.description)
+        self.assertIn('http://testserver/enquiry/', message.description)
 
 
     def test_send_emails(self):

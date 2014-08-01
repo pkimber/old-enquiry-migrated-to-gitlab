@@ -26,6 +26,10 @@ Add the following to a ``.private`` file in the root of your project::
 .. note:: Replace ``your private key`` and ``your public key`` with the actual
           reCAPTCHA keys.
 
+.. warning:: The ``.private`` file should not be added to a public repository,
+             as it contains *secret* information.  So please do not add it to
+             ``git`` or ``mercurial``.
+
 Update your environment with these variables::
 
   source venv-enquiry/bin/activate

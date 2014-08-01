@@ -26,6 +26,7 @@ class EnquiryCreateView(BaseMixin, CreateView):
     def get_form_kwargs(self):
         kwargs = super(EnquiryCreateView, self).get_form_kwargs()
         kwargs.update(dict(
+            request=self.request,
             user=self.request.user,
         ))
         return kwargs
