@@ -14,7 +14,6 @@ from login.tests.scenario import (
 )
 from mail.management.commands import mail_send
 
-from enquiry.tests.factories import EnquiryFactory
 from enquiry.models import (
     Enquiry,
     Notify,
