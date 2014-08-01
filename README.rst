@@ -1,7 +1,7 @@
 enquiry
 *******
 
-Django application for an online enquiry.
+Django application for an online enquiry form.
 
 Install
 =======
@@ -18,6 +18,18 @@ Virtual Environment
 
   pip install -r requirements/local.txt
 
+Add the following to a ``.private`` file in the root of your project::
+
+  export RECAPTCHA_PRIVATE_KEY="your private key"
+  export RECAPTCHA_PUBLIC_KEY="your public key"
+
+.. note:: Replace ``your private key`` and ``your public key`` with the actual
+          reCAPTCHA keys.
+
+Update your environment with these variables::
+
+  source venv-enquiry/bin/activate
+
 Testing
 =======
 
@@ -29,14 +41,6 @@ Testing
 Usage
 =====
 
-.. note:: Replace ``your private key`` and ``your public key`` with the actual
-          reCAPTCHA keys.
-
-::
-
-  export RECAPTCHA_PRIVATE_KEY="your private key"
-  export RECAPTCHA_PUBLIC_KEY="your public key"
-
 ::
 
   py.test -x && \
@@ -47,7 +51,12 @@ Usage
       django-admin.py demo_data_enquiry && \
       django-admin.py runserver
 
+Browse to http://localhost:8000/.  To login::
+
+  user          staff
+  pass          letmein
+
 Release
 =======
 
-https://django-dev-and-deploy-using-salt.readthedocs.org/
+https://www.pkimber.net/open/

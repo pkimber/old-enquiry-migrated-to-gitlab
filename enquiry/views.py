@@ -16,4 +16,5 @@ from .models import Enquiry
 class EnquiryListView(
         LoginRequiredMixin, StaffuserRequiredMixin, BaseMixin, ListView):
 
+    paginate_by = 10
     model = Enquiry

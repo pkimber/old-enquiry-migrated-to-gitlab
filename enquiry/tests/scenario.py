@@ -13,6 +13,8 @@ def get_enquiry_buy_some_hay():
 
 
 def default_scenario_enquiry():
+    make_notify('test1@pkimber.net')
+    make_notify('test2@pkimber.net')
     make_enquiry(
         'Rick',
         'Can I buy some hay?',
@@ -30,5 +32,3 @@ def default_scenario_enquiry():
         'test@pkimber.net',
         '01234 567 890',
     )
-    make_notify('test1@pkimber.net')
-    make_notify('test2@pkimber.net')
