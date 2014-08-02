@@ -13,11 +13,9 @@ from login.tests.scenario import (
     get_user_staff,
 )
 from mail.management.commands import mail_send
+from mail.models import Notify
 
-from enquiry.models import (
-    Enquiry,
-    Notify,
-)
+from enquiry.models import Enquiry
 from enquiry.tests.scenario import default_scenario_enquiry
 
 
@@ -78,7 +76,8 @@ class TestView(TestCase):
         self._post_enquiry()
         enquiry = Enquiry.objects.get(name='Richard')
         message = enquiry.message
-        self.assertIn((
+        self.assertIn(
+            (
                 'enquiry received from Richard, '
                 'richard@pkimber.net on 07840 538 357'
             ),

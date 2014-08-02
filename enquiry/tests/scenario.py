@@ -1,11 +1,10 @@
 # -*- encoding: utf-8 -*-
 from __future__ import unicode_literals
 
+from mail.tests.model_maker import make_notify
+
 from enquiry.models import Enquiry
-from enquiry.tests.model_maker import (
-    make_enquiry,
-    make_notify,
-)
+from enquiry.tests.model_maker import make_enquiry
 
 
 def get_enquiry_buy_some_hay():

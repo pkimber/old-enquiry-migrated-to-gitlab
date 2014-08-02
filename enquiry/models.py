@@ -38,24 +38,12 @@ class Enquiry(TimeStampedModel):
                 'You must provide an email address or phone number.'
             )
 
-    def _message(self):
+    @property
+    def message(self):
         """Get the mail message linked to this enquiry."""
         return Message.objects.get(
             object_id=self.pk,
             content_type=ContentType.objects.get_for_model(self),
         )
-    message = property(_message)
-
 
 reversion.register(Enquiry)
-
-
-class Notify(TimeStampedModel):
-    """List of people to notify when an enquiry is received."""
-
-    email = models.EmailField()
-
-    def __str__(self):
-        return '{}'.format(self.email)
-
-reversion.register(Notify)

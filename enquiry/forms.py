@@ -8,12 +8,10 @@ from django.core.urlresolvers import reverse
 from captcha.fields import ReCaptchaField
 
 from base.form_utils import RequiredFieldForm
+from mail.models import Notify
 from mail.service import queue_mail_message
 
-from .models import (
-    Enquiry,
-    Notify,
-)
+from .models import Enquiry
 
 
 logger = logging.getLogger(__name__)
