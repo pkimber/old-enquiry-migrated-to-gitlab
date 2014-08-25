@@ -19,7 +19,7 @@ def get_readme():
 
 
 setup(
-    name='pkimber-enquiry',
+    name='kb-enquiry',
     packages=['enquiry', 'enquiry.migrations', 'enquiry.tests', 'enquiry.management', 'enquiry.management.commands'],
     package_data={
         'enquiry': [
@@ -28,7 +28,7 @@ setup(
             'templates/enquiry/*.*',
         ],
     },
-    version='0.1.05',
+    version='0.1.06',
     description='enquiry',
     author='Patrick Kimber',
     author_email='code@pkimber.net',
