@@ -24,6 +24,7 @@ def get_env_variable(key):
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+TESTING = False
 THUMBNAIL_DEBUG = DEBUG
 
 SESSION_COOKIE_SECURE = False
