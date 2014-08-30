@@ -204,7 +204,7 @@ FTP_STATIC_URL = None
 
 # URL where requests are redirected after login when the contrib.auth.login
 # view gets no next parameter.
-LOGIN_REDIRECT_URL = reverse_lazy('project.home.user')
+LOGIN_REDIRECT_URL = reverse_lazy('project.dash')
 
 # See the list of constants at the top of 'mail.models'
 MAIL_TEMPLATE_TYPE = get_env_variable("MAIL_TEMPLATE_TYPE")
