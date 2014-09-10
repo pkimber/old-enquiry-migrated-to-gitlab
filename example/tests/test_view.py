@@ -13,7 +13,10 @@ from login.tests.scenario import (
     get_user_staff,
 )
 from mail.management.commands import mail_send
-from mail.models import Notify
+from mail.models import (
+    Mail,
+    Notify,
+)
 
 from enquiry.models import Enquiry
 from enquiry.tests.scenario import default_scenario_enquiry
@@ -86,22 +89,21 @@ class TestView(TestCase):
         self.assertIn('Do you sell hay and straw?', message.description)
         self.assertIn('http://testserver/enquiry/', message.description)
 
-
     def test_send_emails(self):
         """Test the management command."""
         self._post_enquiry()
         enquiry = self._get_enquiry()
         message = enquiry.message
-        count = 0
-        for m in message.mail_set.all():
-            self.assertIsNone(m.sent)
-            count = count + 1
-        self.assertEqual(2, count)
+        pks = [m.pk for m in message.mail_set.all()]
+        self.assertEqual(2, len(pks))
+        for pk in pks:
+            m = Mail.objects.get(pk=pk)
+            m.sent = None
+            m.sent_response_code = None
+            m.save()
         # send the emails
         command = mail_send.Command()
         command.handle()
-        # check they have been sent
-        self.assertEqual(len(mail.outbox), 2)
         # check the mail is marked as sent
         message = enquiry.message
         count = 0
