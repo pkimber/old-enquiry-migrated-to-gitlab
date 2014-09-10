@@ -10,6 +10,7 @@ from captcha.fields import ReCaptchaField
 from base.form_utils import RequiredFieldForm
 from mail.models import Notify
 from mail.service import queue_mail_message
+from mail.tasks import process_mail
 
 from .models import Enquiry
 
@@ -64,6 +65,7 @@ class EnquiryForm(RequiredFieldForm):
                     'Enquiry from {}'.format(instance.name),
                     self._email_message(instance),
                 )
+                process_mail.delay()
             else:
                 logging.error(
                     "Enquiry app cannot send email notifications.  "
