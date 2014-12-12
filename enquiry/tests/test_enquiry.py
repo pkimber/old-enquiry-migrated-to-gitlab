@@ -39,4 +39,3 @@ class TestEnquiry(TestCase):
             'web@pkimber.net',
             '07840 538 357',
         )
-

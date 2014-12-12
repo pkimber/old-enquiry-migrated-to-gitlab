@@ -1,12 +1,11 @@
 bleach==1.4
-celery==3.1.13
+celery==3.1.16
 django-braces==1.4.0
 django-compressor==1.4
+django-nocaptcha-recaptcha==0.0.15
 django-reversion==1.8.5
+django-sendfile==0.3.6
 Django==1.7.1
-djrill
-git+https://github.com/BradWhittington/django-mailgun.git#egg=django_mailgun
-git+https://github.com/pkimber/django-recaptcha.git#egg=captcha
-git+https://github.com/pkimber/django-sendfile#egg=sendfile
+djrill==1.2.0
 python-dateutil==2.2
-pytz==2014.2
+pytz==2014.9

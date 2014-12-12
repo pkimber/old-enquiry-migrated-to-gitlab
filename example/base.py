@@ -133,8 +133,8 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'captcha',
     'compressor',
+    'nocaptcha_recaptcha',
     'reversion',
 )
 
@@ -177,11 +177,6 @@ LOGGING = {
     }
 }
 
-# https://github.com/mbi/django-simple-captcha
-CAPTCHA_LETTER_ROTATION = None
-CAPTCHA_NOISE_FUNCTIONS = None
-CAPTCHA_TEST_MODE = True
-
 # django-compressor
 COMPRESS_ENABLED = False # defaults to the opposite of DEBUG
 
@@ -201,10 +196,9 @@ MAIL_TEMPLATE_TYPE = get_env_variable("MAIL_TEMPLATE_TYPE")
 # Put in the example app for testing purposes only
 MAILGUN_SERVER_NAME = get_env_variable("MAILGUN_SERVER_NAME")
 
-# https://github.com/insttrack/django-recaptcha
-RECAPTCHA_PRIVATE_KEY = get_env_variable('RECAPTCHA_PRIVATE_KEY')
-RECAPTCHA_PUBLIC_KEY = get_env_variable('RECAPTCHA_PUBLIC_KEY')
-RECAPTCHA_USE_SSL = True
+# https://github.com/ImaginaryLandscape/django-nocaptcha-recaptcha
+NORECAPTCHA_SITE_KEY = get_env_variable('NORECAPTCHA_SITE_KEY')
+NORECAPTCHA_SECRET_KEY = get_env_variable('NORECAPTCHA_SECRET_KEY')
 
 # https://github.com/johnsensible/django-sendfile
 SENDFILE_BACKEND = 'sendfile.backends.development'
