@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from mail.tests.model_maker import make_notify
 
 from enquiry.models import Enquiry

@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 import os
 
 from django.core import mail
@@ -43,7 +41,9 @@ class TestView(TestCase):
 
     def setUp(self):
         os.environ['RECAPTCHA_TESTING'] = 'True'
+        # creates one notify email address
         default_scenario_login()
+        # creates two notify email addresses
         default_scenario_enquiry()
         staff = get_user_staff()
         self.assertTrue(
@@ -95,7 +95,7 @@ class TestView(TestCase):
         enquiry = self._get_enquiry()
         message = enquiry.message
         pks = [m.pk for m in message.mail_set.all()]
-        self.assertEqual(2, len(pks))
+        self.assertEqual(3, len(pks))
         for pk in pks:
             m = Mail.objects.get(pk=pk)
             m.sent = None
@@ -110,4 +110,4 @@ class TestView(TestCase):
         for m in message.mail_set.all():
             self.assertIsNotNone(m.sent)
             count = count + 1
-        self.assertEqual(2, count)
+        self.assertEqual(3, count)
