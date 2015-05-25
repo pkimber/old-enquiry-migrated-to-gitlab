@@ -1,8 +1,7 @@
 # -*- encoding: utf-8 -*-
-from mail.tests.model_maker import make_notify
-
 from enquiry.models import Enquiry
 from enquiry.tests.model_maker import make_enquiry
+from mail.models import Notify
 
 
 def get_enquiry_buy_some_hay():
@@ -10,8 +9,8 @@ def get_enquiry_buy_some_hay():
 
 
 def default_scenario_enquiry():
-    make_notify('test1@pkimber.net')
-    make_notify('test2@pkimber.net')
+    Notify.objects.create_notify('test1@pkimber.net')
+    Notify.objects.create_notify('test2@pkimber.net')
     make_enquiry(
         'Rick',
         'Can I buy some hay?',

@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from celery import Celery
 #from celery.schedules import crontab
 
