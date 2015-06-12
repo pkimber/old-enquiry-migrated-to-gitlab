@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.core.urlresolvers import reverse
 
 from base.tests.test_utils import PermTestCase
