@@ -10,11 +10,6 @@ from enquiry.forms import EnquiryForm
 from enquiry.models import Enquiry
 
 
-class HomeView(TemplateView):
-
-    template_name = 'example/home.html'
-
-
 class EnquiryCreateView(BaseMixin, CreateView):
     """Save an enquiry in the database."""
 
@@ -31,3 +26,13 @@ class EnquiryCreateView(BaseMixin, CreateView):
 
     def get_success_url(self):
         return reverse('project.home')
+
+
+class HomeView(TemplateView):
+
+    template_name = 'example/home.html'
+
+
+class SettingsView(TemplateView):
+
+    template_name = 'example/settings.html'

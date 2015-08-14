@@ -142,8 +142,8 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
+    'captcha',
     'compressor',
-    'nocaptcha_recaptcha',
     'reversion',
 )
 
@@ -205,9 +205,10 @@ MAIL_TEMPLATE_TYPE = get_env_variable("MAIL_TEMPLATE_TYPE")
 # Put in the example app for testing purposes only
 MAILGUN_SERVER_NAME = get_env_variable("MAILGUN_SERVER_NAME")
 
-# https://github.com/ImaginaryLandscape/django-nocaptcha-recaptcha
-NORECAPTCHA_SITE_KEY = get_env_variable('NORECAPTCHA_SITE_KEY')
-NORECAPTCHA_SECRET_KEY = get_env_variable('NORECAPTCHA_SECRET_KEY')
+# https://github.com/praekelt/django-recaptcha
+NOCAPTCHA = True
+RECAPTCHA_PUBLIC_KEY = get_env_variable('NORECAPTCHA_SITE_KEY')
+RECAPTCHA_PRIVATE_KEY = get_env_variable('NORECAPTCHA_SECRET_KEY')
 
 # https://github.com/johnsensible/django-sendfile
 SENDFILE_BACKEND = 'sendfile.backends.development'

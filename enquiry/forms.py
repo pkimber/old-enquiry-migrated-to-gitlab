@@ -3,7 +3,7 @@ import logging
 
 from django.core.urlresolvers import reverse
 
-from nocaptcha_recaptcha.fields import NoReCaptchaField
+from captcha.fields import ReCaptchaField
 
 from base.form_utils import RequiredFieldForm
 from mail.models import Notify
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 class EnquiryForm(RequiredFieldForm):
 
     """user is not logged in... so we need a captcha."""
-    captcha = NoReCaptchaField()
+    captcha = ReCaptchaField()
 
     def __init__(self, *args, **kwargs):
         """Don't use the captcha if the user is already logged in."""

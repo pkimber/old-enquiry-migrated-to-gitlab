@@ -9,7 +9,8 @@ from django.views.generic import RedirectView
 
 from .views import (
     EnquiryCreateView,
-    HomeView
+    HomeView,
+    SettingsView,
 )
 
 admin.autodiscover()
@@ -20,6 +21,10 @@ urlpatterns = patterns(
     url(regex=r'^$',
         view=HomeView.as_view(),
         name='project.home'
+        ),
+    url(regex=r'^$',
+        view=SettingsView.as_view(),
+        name='project.settings'
         ),
     url(regex=r'^',
         view=include('login.urls')
