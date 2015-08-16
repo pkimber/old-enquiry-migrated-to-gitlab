@@ -25,7 +25,7 @@ class EnquiryForm(RequiredFieldForm):
         """Don't use the captcha if the user is already logged in."""
         user = kwargs.pop('user')
         self.req = kwargs.pop('request')
-        super(EnquiryForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if user.is_authenticated():
             del self.fields['captcha']
         for name in ('name', 'description', 'email', 'phone'):
