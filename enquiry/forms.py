@@ -32,6 +32,7 @@ class EnquiryForm(RequiredFieldForm):
             self.fields[name].widget.attrs.update(
                 {'class': 'pure-input-1-2', 'rows': 4}
             )
+        self.fields['description'].help_text = 'Please enter your message'
 
     class Meta:
         model = Enquiry
