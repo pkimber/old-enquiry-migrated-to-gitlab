@@ -1,4 +1,3 @@
-recursive-include enquiry/static *
 recursive-include enquiry/templates *
 
 include LICENSE
