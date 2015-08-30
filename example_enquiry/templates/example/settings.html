@@ -1,4 +1,5 @@
 {% extends 'enquiry/base.html' %}
+
 {% load staticfiles %}
 
 {% block sub_title %}
@@ -8,3 +9,7 @@
 {% block sub_heading %}
   Example Settings
 {% endblock sub_heading %}
+
+{% block content %}
+  {% include 'enquiry/_settings.html' %}
+{% endblock content %}
