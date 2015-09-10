@@ -20,17 +20,17 @@ def get_readme():
 
 setup(
     name='kb-enquiry',
-    packages=['enquiry', 'enquiry.migrations', 'enquiry.tests', 'enquiry.management', 'enquiry.management.commands'],
+    packages=['enquiry', 'enquiry.management', 'enquiry.management.commands', 'enquiry.tests', 'enquiry.migrations'],
     package_data={
         'enquiry': [
             'templates/*.*',
             'templates/enquiry/*.*',
         ],
     },
-    version='0.1.17',
+    version='0.1.18',
     description='enquiry',
-    author='Patrick Kimber',
-    author_email='code@pkimber.net',
+    author='Greg Bushell',
+    author_email='greg@kbsoftware.co.uk',
     url='git@github.com:pkimber/enquiry.git',
     classifiers=[
         'Development Status :: 1 - Planning',
