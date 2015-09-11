@@ -42,6 +42,8 @@ media
 media-private
 temp.db
 venv-*
+logfile
+logfile.*
 
 # private info
 .private
