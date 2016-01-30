@@ -1,17 +1,15 @@
 # -*- encoding: utf-8 -*-
+import pytest
+
 from django.core.urlresolvers import reverse
 
-from base.tests.test_utils import PermTestCase
-from enquiry.tests.scenario import default_scenario_enquiry
-from login.tests.scenario import default_scenario_login
+from enquiry.tests.factories import EnquiryFactory
+from login.tests.fixture import perm_check
 
 
-class TestViewPerm(PermTestCase):
-
-    def setUp(self):
-        default_scenario_login()
-        default_scenario_enquiry()
-
-    def test_list(self):
-        url = reverse('enquiry.list')
-        self.assert_staff_only(url)
+@pytest.mark.django_db
+def test_list(perm_check):
+    EnquiryFactory()
+    EnquiryFactory()
+    url = reverse('enquiry.list')
+    perm_check.staff(url)

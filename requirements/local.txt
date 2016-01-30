@@ -3,16 +3,9 @@
 -e ../base
 -e ../login
 -e ../mail
-beautifulsoup4
-devpi-client
-fabric
 factory-boy
-gitpython
-hgapi
-ipdb
 psycopg2
+pytest-cov
 pytest-django
 pytest-flakes
 pytest-pep8
-pyyaml
-walkdir
