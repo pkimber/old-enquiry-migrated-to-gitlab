@@ -68,6 +68,6 @@ class EnquiryForm(RequiredFieldForm):
             else:
                 logging.error(
                     "Enquiry app cannot send email notifications.  "
-                    "No email addresses set-up in 'enquiry.models.Notify'"
+                    "No email addresses set-up in 'mail.models.Notify'"
                 )
         return instance
