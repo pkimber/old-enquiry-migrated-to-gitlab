@@ -20,17 +20,17 @@ def get_readme():
 
 setup(
     name='kb-enquiry',
-    packages=['enquiry', 'enquiry.migrations', 'enquiry.tests', 'enquiry.management', 'enquiry.management.commands'],
+    packages=['enquiry', 'enquiry.management', 'enquiry.management.commands', 'enquiry.migrations', 'enquiry.tests'],
     package_data={
         'enquiry': [
             'templates/*.*',
             'templates/enquiry/*.*',
         ],
     },
-    version='0.1.22',
+    version='0.1.23',
     description='enquiry',
-    author='Patrick Kimber',
-    author_email='code@pkimber.net',
+    author='Malcolm Dinsmore',
+    author_email='m.dinsmore@talk21.com',
     url='git@github.com:pkimber/enquiry.git',
     classifiers=[
         'Development Status :: 1 - Planning',
