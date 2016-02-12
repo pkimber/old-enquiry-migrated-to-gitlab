@@ -27,7 +27,7 @@ setup(
             'templates/enquiry/*.*',
         ],
     },
-    version='0.1.23',
+    version='0.1.24',
     description='enquiry',
     author='Malcolm Dinsmore',
     author_email='m.dinsmore@talk21.com',
