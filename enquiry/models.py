@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db import models
 
-import reversion
+from reversion import revisions as reversion
 
 from base.model_utils import TimeStampedModel
 from mail.models import Message
