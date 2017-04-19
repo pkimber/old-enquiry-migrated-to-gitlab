@@ -27,10 +27,10 @@ setup(
             'templates/enquiry/*.*',
         ],
     },
-    version='0.1.27',
+    version='0.1.28',
     description='enquiry',
     author='Malcolm Dinsmore',
-    author_email='zebyea@gmail.com',
+    author_email='code-md@kbsoftware.co.uk',
     url='git@github.com:pkimber/enquiry.git',
     classifiers=[
         'Development Status :: 1 - Planning',
