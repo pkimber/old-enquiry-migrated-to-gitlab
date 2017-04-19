@@ -53,6 +53,9 @@ class EnquiryForm(RequiredFieldForm):
         )
         return result
 
+    def _email_subject(self, instance):
+        return 'Enquiry from {}'.format(instance.name)
+
     def save(self, commit=True):
         instance = super(EnquiryForm, self).save(commit)
         if commit:
@@ -61,7 +64,7 @@ class EnquiryForm(RequiredFieldForm):
                 queue_mail_message(
                     instance,
                     email_addresses,
-                    'Enquiry from {}'.format(instance.name),
+                    self._email_subject(instance),
                     self._email_message(instance),
                 )
                 process_mail.delay()
